@@ -134,6 +134,8 @@ a {
   width: 220px;
   height: 220px;
   border-radius: 50%;
+  position: relative;
+  z-index: 5;
   overflow: hidden;
   margin-bottom: 2rem;
   border: 3px solid var(--highlight);
@@ -146,29 +148,17 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-@keyframes imageFadeIn {
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-.hero-orb-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-.hero-image {
-  position: relative;
-  z-index: 5; /* profile image stays on top */
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.hero-image img {
   display: block;
   width: 250px;  /* adjust for your image size */
   height: 250px;
   object-fit: cover;
   border-radius: 50%;
+}
+
+
+.hero-orb-wrapper {
+  position: relative;
+  display: inline-block;
 }
 
 /* general orb styling */
@@ -210,6 +200,10 @@ a {
   z-index: 0;
   background: radial-gradient(circle at 50% 50%, #f6d365, #fda085);
   clip-path: polygon(50% 0%, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0% 50%, 15% 15%);
+}
+
+@keyframes imageFadeIn {
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 .intro {
   font-size: 1.2rem;
