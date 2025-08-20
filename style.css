@@ -151,7 +151,70 @@ a {
 @keyframes imageFadeIn {
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
+.hero-image {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 1;
+}
 
+.hero-image img {
+  display: block;
+  width: 220px;   /* adjust size */
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Orb aura effect around the image */
+.hero-image::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 182, 193, 0.8),   /* light pink */
+    rgba(255, 105, 180, 0.6),   /* hot pink */
+    rgba(255, 182, 193, 0.8)    /* light pink */
+  );
+  filter: blur(30px);
+  animation: orbWave 6s infinite linear;
+  z-index: 1;
+}
+
+/* Wave-like rotation animation */
+@keyframes orbWave {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* The extra orb (created with JS) */
+.hero-image .orb {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,182,193,0.6), transparent);
+  filter: blur(40px);
+  z-index: 0;
+  transition: transform 0.2s ease-out;
+}
 .intro {
   font-size: 1.2rem;
   opacity: 0;
