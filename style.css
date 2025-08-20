@@ -179,6 +179,8 @@ a {
 @keyframes imageFadeIn {
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
+.hero-text {
+  margin-top: 1.0rem;}
 .intro {
   font-size: 1.2rem;
   opacity: 0;
