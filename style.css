@@ -151,69 +151,65 @@ a {
 @keyframes imageFadeIn {
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
-.hero-image {
+.hero-orb-wrapper {
   position: relative;
   display: inline-block;
+}
+
+.hero-image {
+  position: relative;
+  z-index: 5; /* profile image stays on top */
   border-radius: 50%;
   overflow: hidden;
-  z-index: 1;
 }
 
 .hero-image img {
   display: block;
-  width: 220px;   /* adjust size */
-  height: 220px;
+  width: 250px;  /* adjust for your image size */
+  height: 250px;
   object-fit: cover;
   border-radius: 50%;
-  position: relative;
-  z-index: 2;
 }
 
-/* Orb aura effect around the image */
-.hero-image::before {
-  content: "";
+/* general orb styling */
+.orb {
   position: absolute;
-  top: -15px;
-  left: -15px;
-  right: -15px;
-  bottom: -15px;
   border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    rgba(255, 182, 193, 0.8),   /* light pink */
-    rgba(255, 105, 180, 0.6),   /* hot pink */
-    rgba(255, 182, 193, 0.8)    /* light pink */
-  );
-  filter: blur(30px);
-  animation: orbWave 6s infinite linear;
+  filter: blur(20px);
+  opacity: 0.8;
+}
+
+/* ORB 1 */
+.orb-1 {
+  width: 280px;
+  height: 280px;
+  top: -40px;
+  left: -50px;
   z-index: 1;
+  background: radial-gradient(circle at 30% 30%, #ff7eb3, #ff758c);
+  clip-path: polygon(50% 0%, 80% 20%, 100% 50%, 70% 80%, 30% 100%, 0% 60%, 20% 20%);
 }
 
-/* Wave-like rotation animation */
-@keyframes orbWave {
-  0% {
-    transform: rotate(0deg) scale(1);
-  }
-  50% {
-    transform: rotate(180deg) scale(1.05);
-  }
-  100% {
-    transform: rotate(360deg) scale(1);
-  }
+/* ORB 2 */
+.orb-2 {
+  width: 320px;
+  height: 320px;
+  bottom: -60px;
+  right: -70px;
+  z-index: 2;
+  background: radial-gradient(circle at 70% 70%, #8ec5fc, #e0c3fc);
+  clip-path: polygon(40% 0%, 80% 10%, 100% 40%, 90% 80%, 60% 100%, 20% 80%, 0% 40%);
 }
 
-/* The extra orb (created with JS) */
-.hero-image .orb {
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  right: -20px;
-  bottom: -20px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,182,193,0.6), transparent);
-  filter: blur(40px);
+/* ORB 3 */
+.orb-3 {
+  width: 260px;
+  height: 260px;
+  bottom: 20px;
+  left: -80px;
   z-index: 0;
-  transition: transform 0.2s ease-out;
+  background: radial-gradient(circle at 50% 50%, #f6d365, #fda085);
+  clip-path: polygon(50% 0%, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0% 50%, 15% 15%);
 }
 .intro {
   font-size: 1.2rem;
