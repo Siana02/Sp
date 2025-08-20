@@ -44,6 +44,21 @@ document.addEventListener('click', (e) => {
   }
 });
 
+// ===== Orb Effect =====
+const heroImage = document.querySelector(".hero-image");
+
+// Create orb element dynamically
+const orbElement = document.createElement("div");
+orbElement.classList.add("orb");
+heroImage.appendChild(orbElement);
+
+// React to mouse movement (orb shifts slightly)
+document.addEventListener("mousemove", (e) => {
+  let x = (e.clientX / window.innerWidth - 0.5) * 20;
+  let y = (e.clientY / window.innerHeight - 0.5) * 20;
+  orbElement.style.transform = `translate(${x}px, ${y}px)`;
+});
+
 // ===== TYPING ANIMATION =====
 const codeTagline = document.querySelector('.code-tagline span');
 const phrases = [
