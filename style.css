@@ -155,52 +155,55 @@ a {
   border-radius: 50%;
 }
 
-
 .hero-orb-wrapper {
   position: relative;
   display: inline-block;
 }
 
-/* general orb styling */
+/* Base orb styles */
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(20px);
+  filter: blur(25px);
   opacity: 0.8;
-}
-
-/* ORB 1 */
-.orb-1 {
-  width: 280px;
-  height: 280px;
-  top: -40px;
-  left: -50px;
-  z-index: 1;
-  background: radial-gradient(circle at 30% 30%, #ff7eb3, #ff758c);
-  clip-path: polygon(50% 0%, 80% 20%, 100% 50%, 70% 80%, 30% 100%, 0% 60%, 20% 20%);
-}
-
-/* ORB 2 */
-.orb-2 {
-  width: 320px;
-  height: 320px;
-  bottom: -60px;
-  right: -70px;
-  z-index: 2;
-  background: radial-gradient(circle at 70% 70%, #8ec5fc, #e0c3fc);
-  clip-path: polygon(40% 0%, 80% 10%, 100% 40%, 90% 80%, 60% 100%, 20% 80%, 0% 40%);
-}
-
-/* ORB 3 */
-.orb-3 {
-  width: 260px;
-  height: 260px;
-  bottom: 20px;
-  left: -80px;
   z-index: 0;
-  background: radial-gradient(circle at 50% 50%, #f6d365, #fda085);
-  clip-path: polygon(50% 0%, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0% 50%, 15% 15%);
+  transition: transform 6s ease-in-out;
 }
+
+/* Orb 1: pinkish glow */
+.orb-1 {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at 30% 30%, #ff4fa3, #ff92c7);
+  top: -40px;
+  left: -60px;
+  z-index: -3;
+  clip-path: circle(50% at 50% 50%);
+}
+
+/* Orb 2: purple */
+.orb-2 {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at 70% 40%, #7a5fff, #9e7bff);
+  top: 20px;
+  right: -50px;
+  z-index: -2;
+  clip-path: ellipse(48% 52% at 50% 50%);
+}
+
+/* Orb 3: blue-pink blend */
+.orb-3 {
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle at 30% 60%, #5ee7df, #b490ca);
+  bottom: -40px;
+  left: 20px;
+  z-index: -1;
+  clip-path: ellipse(50% 45% at 50% 50%);
+}
+
+
 
 @keyframes imageFadeIn {
   to { opacity: 1; transform: translateY(0) scale(1); }
