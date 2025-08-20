@@ -129,27 +129,15 @@ a {
   position: relative;
   overflow: hidden;
 }
-
-.hero-image-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 2rem auto;
-}
-
 .hero-image {
   position: relative;
-  width: 180px;   /* adjust to your preferred size */
-  height: 180px;
+  width: 200px;   /* adjust size */
+  height: 200px;
   border-radius: 50%;
-  overflow: hidden;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 20px rgba(255, 105, 180, 0.6),
-              0 0 40px rgba(255, 105, 180, 0.4),
-              0 0 60px rgba(255, 105, 180, 0.2);
-  animation: glowPulse 4s infinite ease-in-out;
 }
 
 .hero-image img {
@@ -157,26 +145,37 @@ a {
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
+  position: relative;
+  z-index: 2;
 }
 
-@keyframes glowPulse {
-  0% {
-    box-shadow: 0 0 15px rgba(255, 105, 180, 0.6),
-                0 0 30px rgba(255, 105, 180, 0.4),
-                0 0 45px rgba(255, 105, 180, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 25px rgba(255, 105, 180, 0.8),
-                0 0 50px rgba(255, 105, 180, 0.6),
-                0 0 75px rgba(255, 105, 180, 0.4);
-  }
-  100% {
-    box-shadow: 0 0 15px rgba(255, 105, 180, 0.6),
-                0 0 30px rgba(255, 105, 180, 0.4),
-                0 0 45px rgba(255, 105, 180, 0.2);
-  }
-    }
+/* Animated glowing aura */
+.hero-image::before {
+  content: "";
+  position: absolute;
+  inset: -8px; /* aura thickness */
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    #c8a2c8,
+    #ffb6c1,
+    #add8e6,
+    #c8a2c8
+  );
+  filter: blur(25px);
+  animation: rotateGlow 8s linear infinite;
+  z-index: 1;
+}
 
+/* Rotation animation */
+@keyframes rotateGlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 @keyframes imageFadeIn {
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
