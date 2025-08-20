@@ -131,79 +131,85 @@ a {
 }
 
 .hero-image {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
   position: relative;
-  z-index: 5;
-  overflow: hidden;
-  margin-bottom: 2rem;
-  border: 3px solid var(--highlight);
-  opacity: 0;
-  transform: translateY(-20px) scale(0.95);
-  animation: imageFadeIn 1s forwards 0.5s;
+  display: inline-block;
+  padding: 10px;
+}
+
+.hero-image::before {
+  content: "";
+  position: absolute;
+  inset: -40px; /* how far glow spreads around */
+  z-index: -1;
+
+  /* Base gradient magic */
+  background: 
+    radial-gradient(circle at 30% 30%, var(--lighter-color), transparent 70%),
+    radial-gradient(circle at 70% 70%, var(--darker-color), transparent 70%),
+    conic-gradient(from var(--angle), var(--lighter-color), var(--darker-color));
+
+  background-blend-mode: screen;
+
+  filter: blur(var(--blur)) saturate(1.4);
+  border-radius: 20px; /* keeps soft corners */
 }
 
 .hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   display: block;
-  width: 250px;  /* adjust for your image size */
-  height: 250px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.hero-orb-wrapper {
+  width: 280px; /* control size of your image */
+  border-radius: 16px;
   position: relative;
-  display: inline-block;
+  z-index: 1;
 }
 
-/* Base orb styles */
-.orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(25px);
-  opacity: 0.8;
-  z-index: 0;
-  transition: transform 6s ease-in-out;
+/* Define the magic CSS variables */
+@property --color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: deeppink;
 }
 
-/* Orb 1: pinkish glow */
-.orb-1 {
-  width: 120px;
-  height: 120px;
-  background: radial-gradient(circle at 30% 30%, #ff4fa3, #ff92c7);
-  top: -40px;
-  left: -60px;
-  z-index: -3;
-  clip-path: circle(50% at 50% 50%);
+@property --lighter-color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: pink;
 }
 
-/* Orb 2: purple */
-.orb-2 {
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(circle at 70% 40%, #7a5fff, #9e7bff);
-  top: 20px;
-  right: -50px;
-  z-index: -2;
-  clip-path: ellipse(48% 52% at 50% 50%);
+@property --darker-color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: purple;
 }
 
-/* Orb 3: blue-pink blend */
-.orb-3 {
-  width: 90px;
-  height: 90px;
-  background: radial-gradient(circle at 30% 60%, #5ee7df, #b490ca);
-  bottom: -40px;
-  left: 20px;
-  z-index: -1;
-  clip-path: ellipse(50% 45% at 50% 50%);
+@property --angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
 }
 
+@property --blur {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 40px;
+}
 
+/* Animate the aura */
+@keyframes change-color {
+  0%   { --color: deeppink; --lighter-color: pink; --darker-color: purple; }
+  25%  { --color: cyan; --lighter-color: lightcyan; --darker-color: teal; }
+  50%  { --color: violet; --lighter-color: plum; --darker-color: indigo; }
+  75%  { --color: orange; --lighter-color: gold; --darker-color: darkorange; }
+  100% { --color: deeppink; --lighter-color: pink; --darker-color: purple; }
+}
+
+@keyframes orb {
+  0%, 100% { --blur: 40px; --angle: 0deg; }
+  50% { --blur: 60px; --angle: 180deg; }
+}
+
+.hero-image::before {
+  animation: change-color 12s infinite linear, orb 8s infinite ease-in-out;
+}
 
 @keyframes imageFadeIn {
   to { opacity: 1; transform: translateY(0) scale(1); }
