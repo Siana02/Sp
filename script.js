@@ -60,7 +60,7 @@ document.addEventListener("mousemove", (e) => {
 });
 
 // ===== TYPING ANIMATION =====
-const codeTagline = document.querySelector('.code-tagline span');
+const codeTagline = document.querySelector('.code-tagline .dynamic');
 const phrases = [
   'Websites',
   'Mobile Applications',
