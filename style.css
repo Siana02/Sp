@@ -130,86 +130,52 @@ a {
   overflow: hidden;
 }
 
-.hero-image {
-  position: relative;
-  display: inline-block;
-  padding: 10px;
+.hero-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
 }
 
-.hero-image::before {
-  content: "";
-  position: absolute;
-  inset: -40px; /* how far glow spreads around */
-  z-index: -1;
-
-  /* Base gradient magic */
-  background: 
-    radial-gradient(circle at 30% 30%, var(--lighter-color), transparent 70%),
-    radial-gradient(circle at 70% 70%, var(--darker-color), transparent 70%),
-    conic-gradient(from var(--angle), var(--lighter-color), var(--darker-color));
-
-  background-blend-mode: screen;
-
-  filter: blur(var(--blur)) saturate(1.4);
-  border-radius: 20px; /* keeps soft corners */
+.hero-image {
+  position: relative;
+  width: 180px;   /* adjust to your preferred size */
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.6),
+              0 0 40px rgba(255, 105, 180, 0.4),
+              0 0 60px rgba(255, 105, 180, 0.2);
+  animation: glowPulse 4s infinite ease-in-out;
 }
 
 .hero-image img {
-  display: block;
-  width: 280px; /* control size of your image */
-  border-radius: 16px;
-  position: relative;
-  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-/* Define the magic CSS variables */
-@property --color {
-  syntax: '<color>';
-  inherits: false;
-  initial-value: deeppink;
-}
-
-@property --lighter-color {
-  syntax: '<color>';
-  inherits: false;
-  initial-value: pink;
-}
-
-@property --darker-color {
-  syntax: '<color>';
-  inherits: false;
-  initial-value: purple;
-}
-
-@property --angle {
-  syntax: '<angle>';
-  inherits: false;
-  initial-value: 0deg;
-}
-
-@property --blur {
-  syntax: '<length>';
-  inherits: false;
-  initial-value: 40px;
-}
-
-/* Animate the aura */
-@keyframes change-color {
-  0%   { --color: deeppink; --lighter-color: pink; --darker-color: purple; }
-  25%  { --color: cyan; --lighter-color: lightcyan; --darker-color: teal; }
-  50%  { --color: violet; --lighter-color: plum; --darker-color: indigo; }
-  75%  { --color: orange; --lighter-color: gold; --darker-color: darkorange; }
-  100% { --color: deeppink; --lighter-color: pink; --darker-color: purple; }
-}
-
-@keyframes orb {
-  0%, 100% { --blur: 40px; --angle: 0deg; }
-  50% { --blur: 60px; --angle: 180deg; }
-}
-
-.hero-image::before {
-  animation: change-color 12s infinite linear, orb 8s infinite ease-in-out;
-}
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.6),
+                0 0 30px rgba(255, 105, 180, 0.4),
+                0 0 45px rgba(255, 105, 180, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 105, 180, 0.8),
+                0 0 50px rgba(255, 105, 180, 0.6),
+                0 0 75px rgba(255, 105, 180, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.6),
+                0 0 30px rgba(255, 105, 180, 0.4),
+                0 0 45px rgba(255, 105, 180, 0.2);
+  }
+    }
 
 @keyframes imageFadeIn {
   to { opacity: 1; transform: translateY(0) scale(1); }
