@@ -207,7 +207,6 @@ a {
   opacity: 0;
   animation: fadeUp 1s forwards 2.2s;
 }
-
 .code-tagline {
   font-family: monospace;
   font-size: 1.1rem;
@@ -216,11 +215,16 @@ a {
 }
 
 .code-tagline .tag {
-  color: var(--accent); /* keep your highlight color */
+  color: var(--accent); /* your highlight color */
 }
 
-.code-tagline .inner {
-  color: #444; /* dark gray, readable but not harsh black */
+.code-tagline {
+  color: #444; /* dark gray for I Create */
+}
+
+.code-tagline .dynamic {
+  color: #EE82EE; /* dynamic words match inner text */
+  font-weight: 500;
 }
 
 /* CTA BUTTONS */
