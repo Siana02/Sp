@@ -211,9 +211,16 @@ a {
 .code-tagline {
   font-family: monospace;
   font-size: 1.1rem;
-  color: var(--accent);
   opacity: 0;
   animation: fadeUp 1s forwards 2.6s;
+}
+
+.code-tagline .tag {
+  color: var(--accent); /* keep your highlight color */
+}
+
+.code-tagline .inner {
+  color: #444; /* dark gray, readable but not harsh black */
 }
 
 /* CTA BUTTONS */
