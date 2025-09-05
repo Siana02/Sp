@@ -1,3 +1,31 @@
+/* ===== COLORS & FONTS ===== */
+:root {
+  --base-bg: #FFE9F2; /* Soft Cotton Candy Pink */
+  --text: #000000; /* Main text: Black for readability */
+  --accent: #FFB6C1; /* Light Pink for highlights/buttons */
+  --highlight: #C9E0FF; /* Pastel Blue for minor highlights */
+  --support: #FDD9EC; /* Secondary pastel touch for pop-up/UI */
+  --font-heading: 'Gloock', serif;
+  --font-body: 'Roboto', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--base-bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
 /* ===== PRIVACY PAGE ===== */
 .privacy-container {
   max-width: 900px;
