@@ -649,9 +649,9 @@ a {
 /* --- CONTACT SECTION TITLE & INTRO: Centered and styled --- */
 .contact .section-title {
   font-family: var(--font-heading);
-  font-size: 1.0rem;
+  font-size: 1.2rem;
   color: var(--text);
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: center;
@@ -663,7 +663,8 @@ a {
   color: var(--accent);
   font-size: 1.0rem;
   font-family: var(--font-body);
-  font-weight: 400;
+  font-style: italic;
+  font-weight: 500;
   margin-bottom: 2.3rem;
   margin-left: auto;
   margin-right: auto;
@@ -748,12 +749,12 @@ a {
 .contact-icons {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 1.2rem;
+  justify-content: center;   /* centers horizontally in container */
+  align-items: center;       /* centers vertically */
+  gap: 1.2rem;               /* consistent spacing between icons */
   width: 100%;
-  flex-wrap: nowrap;
-  margin-bottom: 0;
+  flex-wrap: nowrap;         /* prevents wrapping to a new line */
+  margin: 0 auto;            /* centers the whole row if container is less than 100% width */
   padding: 0;
   transition: gap 0.3s;
 }
