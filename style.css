@@ -353,13 +353,15 @@ a {
   }
 }
 /* About Me Section */
+/* About Me Section */
 .about {
   width: 100%;
   padding: 80px 20px;
-  background: #0d0d0d;
-  color: #f5f5f5;
+  background: var(--base-bg);
+  color: var(--text);
   text-align: center;
   overflow: hidden;
+  font-family: var(--font-body);
 }
 
 .about .container {
@@ -381,9 +383,10 @@ a {
 }
 
 .about .section-title {
+  font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 700;
-  color: #00bcd4;
+  color: var(--accent);
   margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -392,11 +395,15 @@ a {
 .about .about-description {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: #cccccc;
+  color: var(--text);
   margin: 0 auto;
   max-width: 750px;
   padding: 0 10px;
   transition-delay: 0.3s; /* description slides in after title */
+  background: var(--highlight);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 /* Responsiveness */
