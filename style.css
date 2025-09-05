@@ -503,6 +503,9 @@ a {
   .skill-icon span {
     font-size: 0.9rem;
   }
+  .skills .section-title {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;}
 }
 /* ===== PROJECTS SECTION ===== */
 .projects {
@@ -588,6 +591,12 @@ a {
   font-size: 1.3rem;
   margin: 0.5rem 0;
   color: var(--text);
+}
+
+@media (max-width: 400px) {
+  .project-card h3 {
+    font-size: 0.8rem; /* even smaller for very small screens */
+  }
 }
 
 .project-card p {
