@@ -190,3 +190,21 @@ if (skillIcons.length) {
 
   skillIcons.forEach(icon => observer.observe(icon));
 }
+
+// ===== CONTACT ICONS SCROLL ANIMATION =====
+document.addEventListener('DOMContentLoaded', () => {
+  const contactIcons = document.querySelector('.contact-icons');
+
+  if (contactIcons) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          contactIcons.classList.add('show');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(contactIcons);
+  }
+});
