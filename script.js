@@ -101,3 +101,38 @@ function type() {
 }
 
 type();
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".number");
+
+    const animateCounter = (counter) => {
+      const target = +counter.getAttribute("data-target");
+      let count = 0;
+      const increment = target / 100; // smooth speed (100 steps)
+
+      const updateCounter = () => {
+        count += increment;
+        if (count < target) {
+          counter.textContent = Math.floor(count);
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target + (counter.dataset.target.includes('%') ? '%' : '+');
+        }
+      };
+
+      updateCounter();
+    };
+
+    // Trigger only when the belt section is visible
+    const beltSection = document.querySelector(".belt");
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          counters.forEach(counter => animateCounter(counter));
+          observer.unobserve(beltSection); // run only once
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(beltSection);
+  });
