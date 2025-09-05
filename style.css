@@ -746,18 +746,13 @@ a {
 }
 
 * --- CONTACT ICONS: horizontal row, spacing, scaling, hover --- */
-.contact-icons {
+.contact-icons-container {
+  flex: 1 1 250px;           /* icons column */
+  max-width: 400px;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 1.2rem;
-  width: 100%;
-  flex-wrap: nowrap;
-  margin: 0 auto;
-  padding: 0;
-  transition: gap 0.3s;
-  overflow-x: auto; /* optional, prevents wrapping if container too small */
+  gap: 1rem;
 }
 
 .contact-icons-title {
@@ -773,26 +768,31 @@ a {
   margin-bottom: 1.1rem;
   margin-top: 0.5rem;
   padding-bottom: 0;
-  }
-
-/* Default icon size */
-.contact-icons a {
+}
+/* Icons row */
+.contact-icons {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--support);
-  color: var(--accent);
-  font-size: 1.7rem;
-  transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  margin: 0;
-  flex-shrink: 0;
-  padding: 0;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: nowrap;            /* forces one line */
+  width: 100%;
+  overflow-x: auto;             /* optional if viewport is small */
 }
 
+.contact-icons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;           /* round shape */
+  background: var(--support);
+  color: var(--accent);
+  font-size: 1.5rem;
+  transition: transform 0.3s, box-shadow 0.3s, color 0.3s;
+}
 /* Hover effect */
 .contact-icons a:hover {
   transform: scale(1.13);
