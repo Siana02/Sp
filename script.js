@@ -208,3 +208,17 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(contactIcons);
   }
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const contactGrid = document.querySelector('.contact-grid');
+  if (contactGrid) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          contactGrid.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    observer.observe(contactGrid);
+  }
+});
