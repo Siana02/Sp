@@ -749,15 +749,17 @@ a {
 .contact-icons {
   display: flex;
   flex-direction: row;
-  justify-content: center;   /* centers horizontally in container */
-  align-items: center;       /* centers vertically */
-  gap: 1.2rem;               /* consistent spacing between icons */
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
   width: 100%;
-  flex-wrap: nowrap;         /* prevents wrapping to a new line */
-  margin: 0 auto;            /* centers the whole row if container is less than 100% width */
+  flex-wrap: nowrap;
+  margin: 0 auto;
   padding: 0;
   transition: gap 0.3s;
+  overflow-x: auto; /* optional, prevents wrapping if container too small */
 }
+
 .contact-icons-title {
   display: block;
   text-align: center;
@@ -787,6 +789,8 @@ a {
   transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   margin: 0;
+  flex-shrink: 0;
+  padding: 0;
 }
 
 /* Hover effect */
