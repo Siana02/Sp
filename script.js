@@ -158,3 +158,21 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(beltSection);
   }
 });
+// ===== ABOUT SECTION ANIMATION =====
+document.addEventListener("DOMContentLoaded", () => {
+  const aboutElements = document.querySelectorAll(".about .section-title, .about .about-description");
+
+  if (aboutElements.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        } else {
+          entry.target.classList.remove("visible"); // reset when out of view
+        }
+      });
+    }, { threshold: 0.3 });
+
+    aboutElements.forEach(el => observer.observe(el));
+  }
+});
