@@ -9,31 +9,27 @@ const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 const mobileMenuLinks = mobileMenu ? mobileMenu.querySelectorAll('ul li') : [];
 
+// Open mobile menu with staggered link animation
 function openMobileMenu() {
   if (!mobileMenu) return;
   mobileMenu.classList.add('show');
   mobileMenuLinks.forEach((link, i) => {
-    link.style.transition = `all 0.3s ease ${i * 0.1}s`;
-    link.style.opacity = '1';
-    link.style.transform = 'translateX(0)';
+    setTimeout(() => link.classList.add('show'), i * 100);
   });
 }
 
+// Close mobile menu
 function closeMobileMenu() {
   if (!mobileMenu) return;
-  mobileMenuLinks.forEach((link, i) => {
-    link.style.transition = `all 0.3s ease`;
-    link.style.opacity = '0';
-    link.style.transform = 'translateX(-20px)';
-  });
-  setTimeout(() => mobileMenu.classList.remove('show'), 300);
+  mobileMenuLinks.forEach(link => link.classList.remove('show'));
+  mobileMenu.classList.remove('show');
 }
 
-// Toggle mobile menu (guarded)
+// Toggle menu on hamburger click
 if (hamburger) {
-  hamburger.addEventListener('click', (e) => {
+  hamburger.addEventListener('click', e => {
     e.stopPropagation();
-    if (mobileMenu && mobileMenu.classList.contains('show')) {
+    if (mobileMenu.classList.contains('show')) {
       closeMobileMenu();
     } else {
       openMobileMenu();
@@ -41,12 +37,12 @@ if (hamburger) {
   });
 }
 
-// Close menu if clicking outside (guarded)
-document.addEventListener('click', (e) => {
+// Close menu if clicking outside
+document.addEventListener('click', e => {
   if (mobileMenu && hamburger && !mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
-    if (mobileMenu.classList.contains('show')) closeMobileMenu();
+    closeMobileMenu();
   }
-});
+}); 
 
 // ===== Orb Effect =====
 const heroImage = document.querySelector(".hero-image");
