@@ -176,3 +176,17 @@ document.addEventListener("DOMContentLoaded", () => {
     aboutElements.forEach(el => observer.observe(el));
   }
 });
+
+// ===== SKILLS ANIMATION =====
+const skillIcons = document.querySelectorAll(".skill-icon");
+if (skillIcons.length) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, { threshold: 0.3 });
+
+  skillIcons.forEach(icon => observer.observe(icon));
+}
