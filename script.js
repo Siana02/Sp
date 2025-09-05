@@ -222,3 +222,19 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(contactGrid);
   }
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const iconsTitle = document.querySelector('.contact-icons-title');
+  if (iconsTitle) {
+    const fullText = "OR via Email or Socials";
+    let i = 0;
+    iconsTitle.textContent = ""; // start blank
+    function typeTitle() {
+      if (i <= fullText.length) {
+        iconsTitle.textContent = fullText.substring(0, i);
+        i++;
+        setTimeout(typeTitle, 70);
+      }
+    }
+    typeTitle();
+  }
+});
