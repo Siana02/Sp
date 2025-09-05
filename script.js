@@ -43,6 +43,14 @@ document.addEventListener('click', e => {
     closeMobileMenu();
   }
 }); 
+// Close mobile menu when a link is clicked
+if (mobileMenuLinks.length) {
+  mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeMobileMenu();
+    });
+  });
+}
 
 // ===== Orb Effect =====
 const heroImage = document.querySelector(".hero-image");
