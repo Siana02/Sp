@@ -124,6 +124,50 @@ a {
   transform: translateX(0);
 }
 
+/* ===== MOBILE MENU PRICING ===== */
+.mobile-pricing {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: var(--support);
+  border-radius: 12px;
+  font-family: var(--font-body);
+  color: var(--text);
+  text-align: left;
+}
+
+.mobile-pricing h4 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.mobile-pricing ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-pricing ul li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.mobile-pricing .note {
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-top: 0.8rem;
+  color: var(--text);
+}
+
+/* Responsive tweak for smaller screens */
+@media (max-width: 480px) {
+  .mobile-pricing h4 {
+    font-size: 1rem;
+  }
+  .mobile-pricing ul li {
+    font-size: 0.9rem;
+  }
+  }
 /* ===== HERO SECTION ===== */
 .hero {
   display: flex;
