@@ -178,7 +178,7 @@ a {
   background: transparent; /* ensures no background */
 }@media (max-width: 480px) {
   .pricing-image img {
-    max-width: 100px; /* even smaller for very small screens */
+    max-width: 300px; /* even smaller for very small screens */
   }
 }
 /* ===== HERO SECTION ===== */
