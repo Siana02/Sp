@@ -151,7 +151,6 @@ a {
   margin-bottom: 0.5rem;
   font-size: 0.95rem;
 }
-
 .mobile-pricing .note {
   font-size: 0.85rem;
   font-style: italic;
@@ -168,6 +167,16 @@ a {
     font-size: 0.9rem;
   }
   }
+.pricing-image {
+  text-align: center; /* centers the image */
+  margin-top: 10px;
+}
+
+.pricing-image img {
+  max-width: 80px; /* make it small */
+  height: auto;
+  background: transparent; /* ensures no background */
+}
 /* ===== HERO SECTION ===== */
 .hero {
   display: flex;
