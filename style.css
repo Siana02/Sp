@@ -176,6 +176,10 @@ a {
   max-width: 80px; /* make it small */
   height: auto;
   background: transparent; /* ensures no background */
+}@media (max-width: 480px) {
+  .pricing-image img {
+    max-width: 100px; /* even smaller for very small screens */
+  }
 }
 /* ===== HERO SECTION ===== */
 .hero {
