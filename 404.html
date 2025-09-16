@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - Page Not Found</title>
+  <title>CV Restricted</title>
 
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Google Fonts or your fonts -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
-    /* Use your portfolio color scheme */
     :root {
       --base-bg: #FFE9F2; 
       --text: #000000; 
@@ -43,18 +42,18 @@
 
     .not-found-container h1 {
       font-family: var(--font-heading);
-      font-size: 8rem;
+      font-size: 6rem;
       margin: 0;
       color: var(--accent);
       animation: bounce 1s ease infinite;
     }
 
     .not-found-container p {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       margin: 1rem 0 2rem 0;
     }
 
-    .btn-home {
+    .btn-contact {
       display: inline-block;
       background: var(--accent);
       color: #fff;
@@ -66,7 +65,7 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
-    .btn-home:hover {
+    .btn-contact:hover {
       transform: translateY(-5px) scale(1.05);
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
@@ -83,14 +82,12 @@
       }
     }
 
-    /* Responsive adjustments */
     @media (max-width: 480px) {
       .not-found-container h1 {
-        font-size: 5rem;
+        font-size: 4rem;
       }
-
       .not-found-container p {
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
     }
   </style>
@@ -98,10 +95,13 @@
 <body>
 
   <div class="not-found-container">
-    <h1>404</h1>
-    <p>Oops! The page you are looking for doesn't exist.</p>
-    <a href="index.html" class="btn-home"><i class="fas fa-home"></i> Back to Home</a>
+    <h1>👻</h1>
+    <p>Ooops… That didn’t work.<br>  
+       It seems like Siana has restricted access to her CV.</p>
+    <a href="index.html#contact" class="btn-contact">
+      <i class="fas fa-envelope"></i> Contact Siana
+    </a>
   </div>
 
 </body>
-  </html>
+</html>
